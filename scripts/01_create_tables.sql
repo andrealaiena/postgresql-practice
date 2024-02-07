@@ -1,6 +1,17 @@
-CREATE TABLE example_table_1(
-    column_1 INT NOT NULL,
-    column_2 VARCHAR(255),
-    column_3 VARCHAR(255),
-    PRIMARY KEY (column_1)
+CREATE TABLE IF NOT EXISTS job_postings(
+    job_link VARCHAR,
+    last_processed_time TIMESTAMP,
+    last_status VARCHAR,
+    got_summary BOOL,
+    got_ner BOOL,
+    is_being_worked BOOL,
+    job_title VARCHAR,
+    company VARCHAR,
+    job_location VARCHAR,
+    first_seen DATE,
+    search_city VARCHAR,
+    search_country VARCHAR ,
+    search_position VARCHAR,
+    job_level VARCHAR,
+    job_type VARCHAR
 );

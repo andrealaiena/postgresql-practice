@@ -43,3 +43,21 @@ for example:
 \i scripts/01_create_tables.sql
 ```
 Be sure to use forward slashes for the path, or you will encounter error "C:: Permission denied" on windows.
+
+### Populating the tables
+After the tables are created, we want to populate them.
+
+In the 'data' folder you can find 3 .csv files taken from [this Kaggle dataset](https://www.kaggle.com/datasets/asaniczka/data-science-job-postings-and-skills).
+
+In order to import the .csv data into our tables we need to perform the \copy command in psql. 
+
+But, before doing so, we need to set the encoding of the client to UTF8 (since it currently may be WIN1252), or we would get an error. L'et's do it by typing:
+```
+\encoding UTF8
+```
+Now we can go on with the import:
+```
+\copy job_postings FROM '<full_path_to>\data\data_science_jobs_2024\job_postings.csv' DELIMITER ',' CSV HEADER
+```
+
+
